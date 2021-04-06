@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="气体检测"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/resultName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="检测结果"
+        android:layout_marginTop="20dp"
+        android:textColor="#ff669900"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/resultNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="0.00"
+        android:textColor="#ff669900"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/air_chart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+
+    <LinearLayout
+        android:id="@+id/setDetail"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/cardview_dark_background"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:text="设置ip地址："
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/ipET"
+                android:hint="例如：192.168.0.7"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:text="设置端口号："
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/portET"
+                android:hint="例如：7777"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"/>
+            <Button
+                android:id="@+id/cancle"
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:text="取消"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/commit"
+                android:layout_width="0dp"
+                android:text="确定"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/warnLl"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/cardview_dark_background"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:text="请输入阈值:"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+        <EditText
+            android:layout_width="0dp"
+            android:id="@+id/setWarnNumEt"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"/>
+        <Button
+            android:id="@+id/commitWarnBt"
+            android:layout_width="0dp"
+            android:text="确定"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/settingLinL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/setDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绑定设备"
+            android:textColor="@color/teal_200"
+            app:layout_constraintRight_toLeftOf="@+id/openSpe"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="开始检测"
+            android:id="@+id/openSpe"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/setDevice"
+            app:layout_constraintRight_toLeftOf="@+id/checkWarnNumBT"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/checkWarnNumBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置阈值"
+            app:layout_constraintLeft_toRightOf="@+id/openSpe"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/history"
+            android:textColor="@color/teal_200" />
+
+        <Button
+            android:id="@+id/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="历史记录"
+            app:layout_constraintLeft_toRightOf="@+id/checkWarnNumBT"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/teal_200" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
