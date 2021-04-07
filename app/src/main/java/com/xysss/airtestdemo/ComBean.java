@@ -1,9 +1,5 @@
 package com.xysss.airtestdemo;
 
-/**
- * Author:bysd-2
- * Time:2021/3/2916:24
- */
 public class ComBean {
     public byte[] bRec = null;
     public ComBean(byte[] paramArrayOfByte, int paramInt) {

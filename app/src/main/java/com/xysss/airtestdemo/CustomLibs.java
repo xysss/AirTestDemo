@@ -1,18 +1,10 @@
 package com.xysss.airtestdemo;
 
-/**
- * Created by bysd-2 on 2017/11/25.
- */
-
-/**
- * 自建库所需对象；
- */
 public class CustomLibs {
 
     private int code;
     private String name;
     private String saveUrl;
-
 
     public CustomLibs() {
     }
